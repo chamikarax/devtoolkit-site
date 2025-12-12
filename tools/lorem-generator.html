@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator - DevToolkit</title>
+    <meta name="description" content="Generate Lorem Ipsum placeholder text for your designs. Free online Lorem Ipsum generator with paragraphs, sentences, and words.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool-page.css">
+    <link rel="stylesheet" href="../css/lorem-generator.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="text-decoration: none; color: #667eea;">🛠️ DevToolkit</a></h1>
+            <p class="tagline">Lorem Ipsum Generator</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="tool-container">
+                
+                <!-- Tool Header -->
+                <div class="tool-header">
+                    <h2>📝 Lorem Ipsum Generator</h2>
+                    <p>Generate placeholder text for your designs and mockups</p>
+                </div>
+
+                <!-- Options Section -->
+                <div class="options-section">
+                    <h3>Generation Options</h3>
+                    
+                    <!-- Type Selection -->
+                    <div class="option-group">
+                        <label>Generate:</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="type" value="paragraphs" checked>
+                                Paragraphs
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="type" value="sentences">
+                                Sentences
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="type" value="words">
+                                Words
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Amount Selection -->
+                    <div class="option-group">
+                        <label for="amountSlider">
+                            Amount: <span id="amountValue">3</span> <span id="amountUnit">paragraphs</span>
+                        </label>
+                        <input type="range" id="amountSlider" min="1" max="10" value="3">
+                    </div>
+                    
+                    <!-- Start with "Lorem ipsum" -->
+                    <div class="option-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="startWithLorem" checked>
+                            Start with "Lorem ipsum dolor sit amet..."
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Generate Button -->
+                <button class="generate-btn" id="generateBtn">
+                    ✨ Generate Text
+                </button>
+
+                <!-- Output Section -->
+                <div class="output-section">
+                    <div class="section-header">
+                        <h3>Generated Text</h3>
+                        <button class="copy-output-btn" id="copyBtn">
+                            📋 Copy All
+                        </button>
+                    </div>
+                    <div class="text-output" id="textOutput">
+                        <p>Click "Generate Text" to create Lorem Ipsum placeholder text...</p>
+                    </div>
+                </div>
+
+                <!-- Info Section -->
+                <div class="info-section">
+                    <h3>ℹ️ How to Use:</h3>
+                    <ol>
+                        <li>Choose what to generate (Paragraphs, Sentences, or Words)</li>
+                        <li>Select the amount using the slider</li>
+                        <li>Optionally start with classic "Lorem ipsum..." text</li>
+                        <li>Click "Generate Text"</li>
+                        <li>Copy the generated text to use in your project</li>
+                    </ol>
+                    
+                    <h3 style="margin-top: 1.5rem;">💡 What is Lorem Ipsum?</h3>
+                    <p>Lorem Ipsum is placeholder text commonly used in design and publishing. It has been the industry standard since the 1500s, allowing designers to focus on visual elements without being distracted by meaningful content.</p>
+                </div>
+
+            </div>
+
+            <!-- Back to Home -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../index.html" class="back-link">← Back to All Tools</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DevToolkit. All tools are free to use.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/lorem-generator.js"></script>
+</body>
+</html>

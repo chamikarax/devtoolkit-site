@@ -1,0 +1,187 @@
+/* JSON Formatter Specific Styles */
+
+/* Textarea */
+#jsonInput,
+#jsonOutput {
+    width: 100%;
+    min-height: 300px;
+    padding: 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: vertical;
+    background: #f8f9fa;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#jsonInput:focus,
+#jsonOutput:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+}
+
+#jsonOutput {
+    background: #f0f4f8;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.format-btn,
+.minify-btn,
+.clear-btn {
+    flex: 1;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.format-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.format-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.minify-btn {
+    background: #2196F3;
+    color: white;
+}
+
+.minify-btn:hover {
+    background: #1976D2;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(33, 150, 243, 0.4);
+}
+
+.clear-btn {
+    background: #f44336;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(244, 67, 54, 0.4);
+}
+
+.format-btn:active,
+.minify-btn:active,
+.clear-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Validation Status */
+.validation-status {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    background: #e3f2fd;
+    border-left: 4px solid #2196F3;
+    color: #1565C0;
+}
+
+.validation-status.valid {
+    background: #e8f5e9;
+    border-left-color: #4caf50;
+    color: #2e7d32;
+}
+
+.validation-status.invalid {
+    background: #ffebee;
+    border-left-color: #f44336;
+    color: #c62828;
+}
+
+.status-icon {
+    font-size: 1.5rem;
+}
+
+.status-text {
+    flex: 1;
+}
+
+/* Copy Button */
+.copy-output-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 0.8rem;
+}
+
+.copy-output-btn:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.copy-output-btn.copied {
+    background: #4caf50;
+}
+
+/* Info Section */
+.info-section {
+    background: #f0f4f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-top: 2rem;
+}
+
+.info-section h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-section ol,
+.info-section ul {
+    margin-left: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.info-section ol li,
+.info-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    #jsonInput,
+    #jsonOutput {
+        min-height: 200px;
+        font-size: 0.85rem;
+    }
+    
+    .validation-status {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Beautifier - DevToolkit</title>
+    <meta name="description" content="Format and beautify your HTML, CSS, and JavaScript code instantly. Free online code formatter.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool-page.css">
+    <link rel="stylesheet" href="../css/code-beautifier.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="text-decoration: none; color: #667eea;">🛠️ DevToolkit</a></h1>
+            <p class="tagline">Code Beautifier</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="tool-container">
+                
+                <!-- Tool Header -->
+                <div class="tool-header">
+                    <h2>✨ Code Beautifier</h2>
+                    <p>Format and beautify your HTML, CSS, and JavaScript code</p>
+                </div>
+
+                <!-- Language Tabs -->
+                <div class="language-tabs">
+                    <button class="tab-btn active" data-lang="html">HTML</button>
+                    <button class="tab-btn" data-lang="css">CSS</button>
+                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
+                </div>
+
+                <!-- Code Input Section -->
+                <div class="code-section">
+                    <div class="section-header">
+                        <h3>📝 Your Code (Paste Here)</h3>
+                    </div>
+                    <textarea 
+                        id="codeInput" 
+                        placeholder="Paste your messy code here...
+
+Example for HTML:
+<div><h1>Hello</h1><p>World</p></div>
+
+Example for CSS:
+body{margin:0;padding:0;font-family:Arial;}
+
+Example for JavaScript:
+function hello(){console.log('Hi');}"
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="beautify-btn" id="beautifyBtn">
+                        ✨ Beautify Code
+                    </button>
+                    <button class="clear-btn" id="clearBtn">
+                        🗑️ Clear All
+                    </button>
+                </div>
+
+                <!-- Code Output Section -->
+                <div class="code-section">
+                    <div class="section-header">
+                        <h3>✅ Beautified Code</h3>
+                        <button class="copy-output-btn" id="copyOutputBtn">
+                            📋 Copy
+                        </button>
+                    </div>
+                    <textarea 
+                        id="codeOutput" 
+                        placeholder="Your beautified code will appear here..."
+                        readonly
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+
+                <!-- Info Section -->
+                <div class="info-section">
+                    <h3>ℹ️ How to Use:</h3>
+                    <ol>
+                        <li>Select your code language (HTML, CSS, or JavaScript)</li>
+                        <li>Paste your messy code in the input box</li>
+                        <li>Click "Beautify Code" button</li>
+                        <li>Copy the formatted code from the output box</li>
+                    </ol>
+                </div>
+
+            </div>
+
+            <!-- Back to Home -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../index.html" class="back-link">← Back to All Tools</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DevToolkit. All tools are free to use.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/code-beautifier.js"></script>
+</body>
+</html>

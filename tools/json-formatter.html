@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter - DevToolkit</title>
+    <meta name="description" content="Validate and format JSON data with syntax highlighting. Free online JSON formatter and validator tool.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tool-page.css">
+    <link rel="stylesheet" href="../css/json-formatter.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="../index.html" style="text-decoration: none; color: #667eea;">🛠️ DevToolkit</a></h1>
+            <p class="tagline">JSON Formatter & Validator</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="tool-container">
+                
+                <!-- Tool Header -->
+                <div class="tool-header">
+                    <h2>📋 JSON Formatter</h2>
+                    <p>Validate, format, and beautify your JSON data</p>
+                </div>
+
+                <!-- JSON Input Section -->
+                <div class="code-section">
+                    <div class="section-header">
+                        <h3>📝 Your JSON (Paste Here)</h3>
+                    </div>
+                    <textarea 
+                        id="jsonInput" 
+                        placeholder='Paste your JSON here...
+
+Example:
+{"name":"John","age":30,"city":"New York","hobbies":["reading","coding","gaming"]}'
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="format-btn" id="formatBtn">
+                        ✨ Format JSON
+                    </button>
+                    <button class="minify-btn" id="minifyBtn">
+                        🗜️ Minify JSON
+                    </button>
+                    <button class="clear-btn" id="clearBtn">
+                        🗑️ Clear All
+                    </button>
+                </div>
+
+                <!-- Validation Status -->
+                <div class="validation-status" id="validationStatus">
+                    <span class="status-icon">ℹ️</span>
+                    <span class="status-text">Paste JSON to validate</span>
+                </div>
+
+                <!-- JSON Output Section -->
+                <div class="code-section">
+                    <div class="section-header">
+                        <h3>✅ Formatted JSON</h3>
+                        <button class="copy-output-btn" id="copyOutputBtn">
+                            📋 Copy
+                        </button>
+                    </div>
+                    <textarea 
+                        id="jsonOutput" 
+                        placeholder="Your formatted JSON will appear here..."
+                        readonly
+                        spellcheck="false"
+                    ></textarea>
+                </div>
+
+                <!-- Info Section -->
+                <div class="info-section">
+                    <h3>ℹ️ How to Use:</h3>
+                    <ol>
+                        <li>Paste your JSON data in the input box</li>
+                        <li>Click "Format JSON" to beautify and validate</li>
+                        <li>Click "Minify JSON" to compress (remove whitespace)</li>
+                        <li>Copy the formatted JSON from the output box</li>
+                    </ol>
+                    
+                    <h3 style="margin-top: 1.5rem;">💡 Tips:</h3>
+                    <ul>
+                        <li>The validator will show errors if your JSON is invalid</li>
+                        <li>Format JSON makes it readable with proper indentation</li>
+                        <li>Minify JSON compresses it for data transfer</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Back to Home -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="../index.html" class="back-link">← Back to All Tools</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DevToolkit. All tools are free to use.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/json-formatter.js"></script>
+</body>
+</html>

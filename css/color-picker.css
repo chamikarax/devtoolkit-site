@@ -1,0 +1,245 @@
+/* Color Picker Specific Styles */
+
+/* Picker Section */
+.picker-section {
+    margin-bottom: 3rem;
+}
+
+.color-input-group {
+    margin-bottom: 2rem;
+}
+
+.color-input-group label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+#colorPicker {
+    width: 100%;
+    height: 80px;
+    border: 3px solid #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+#colorPicker:hover {
+    border-color: #667eea;
+}
+
+/* Color Display */
+.color-display {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+}
+
+.color-preview {
+    width: 300px;
+    height: 300px;
+    border-radius: 12px;
+    background: #667eea;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.color-info h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.color-values {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.color-value-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    transition: border-color 0.3s ease;
+}
+
+.color-value-item:hover {
+    border-color: #667eea;
+}
+
+.value-label {
+    font-weight: 700;
+    color: #667eea;
+    min-width: 50px;
+}
+
+.value-text {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.copy-value-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.copy-value-btn:hover {
+    background: #5568d3;
+    transform: scale(1.1);
+}
+
+.copy-value-btn.copied {
+    background: #4caf50;
+}
+
+/* Palettes Section */
+.palettes-section {
+    margin-top: 3rem;
+}
+
+.palettes-section > h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.palette-description {
+    color: #666;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.palette-group {
+    margin-bottom: 2rem;
+}
+
+.palette-group h4 {
+    color: #667eea;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.palette-colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.palette-color {
+    height: 100px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+}
+
+.palette-color:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.palette-color:active {
+    transform: translateY(-2px);
+}
+
+.palette-color-label {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.palette-color:hover .palette-color-label {
+    opacity: 1;
+}
+
+.palette-color.copied {
+    animation: copyPulse 0.5s ease;
+}
+
+@keyframes copyPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Info Section */
+.info-section {
+    background: #f0f4f8;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    margin-top: 3rem;
+}
+
+.info-section h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-section ol,
+.info-section ul {
+    margin-left: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.info-section ol li,
+.info-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.info-section strong {
+    color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .color-display {
+        grid-template-columns: 1fr;
+    }
+    
+    .color-preview {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .palette-colors {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+    
+    .palette-color {
+        height: 80px;
+    }
+}
