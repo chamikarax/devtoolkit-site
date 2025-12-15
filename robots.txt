@@ -1,0 +1,60 @@
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Link to sitemap
+Sitemap: https://devtoolkit.world/sitemap.xml
+```
+
+**4. Save the file** (Ctrl+S)
+
+---
+
+### **WHAT THIS ROBOTS.TXT DOES:**
+
+**`User-agent: *`** - Applies to ALL search engines (Google, Bing, etc.)
+
+**`Allow: /`** - Allow crawling ALL pages (nothing is blocked!)
+
+**`Sitemap: https://devtoolkit.world/sitemap.xml`** - Tells search engines where your sitemap is!
+
+---
+
+### **STEP 2: PUSH TO GITHUB**
+
+**1. Open Source Control** (Ctrl+Shift+G)
+
+**2. Stage the new file:**
+- You'll see `robots.txt` (Untracked)
+- Click the **+** icon
+
+**3. Commit:**
+- Type: `Add robots.txt for search engines`
+- Click **✓ Commit**
+
+**4. Push:**
+- Click three dots (...) → **Push**
+
+**5. Wait for Netlify:**
+- Go to https://app.netlify.com/
+- Watch for "Published" ✅
+- Takes 10-30 seconds
+
+---
+
+### **STEP 3: TEST YOUR ROBOTS.TXT**
+
+**After Netlify deploys, test it:**
+
+**1. Open your browser**
+
+**2. Go to:** `https://devtoolkit.world/robots.txt`
+
+**3. You should see:**
+```
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Link to sitemap
+Sitemap: https://devtoolkit.world/sitemap.xml
