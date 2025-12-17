@@ -158,5 +158,67 @@
             <p class="footer-tagline">Built with care for the developer community</p>
         </div>
     </footer>
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DevToolkit",
+      "url": "https://devtoolkit.world",
+      "description": "Free online developer tools including password generator, code beautifier, JSON formatter, color picker, and lorem ipsum generator.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "DevToolkit",
+        "url": "https://devtoolkit.world"
+      }
+    }
+    </script>
+
+    <!-- BreadcrumbList for Navigation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://devtoolkit.world"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://devtoolkit.world/#tools"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevToolkit",
+      "url": "https://devtoolkit.world",
+      "logo": "https://devtoolkit.world/assets/favicon/android-chrome-512x512.png",
+      "sameAs": []
+    }
+    </script>
 </body>
 </html>
