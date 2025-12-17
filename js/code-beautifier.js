@@ -52,33 +52,33 @@ function hello(){console.log('Hi');return true;}`
     codeInput.placeholder = placeholders[currentLanguage] || placeholders.html;
 }
 
-// HTML Beautifier Function
+// HTML Beautifier Function - FIXED VERSION
 function beautifyHTML(code) {
     let formatted = '';
     let indent = 0;
     const tab = '  '; // 2 spaces
     
-    // Remove extra whitespace
+    // Remove extra whitespace but preserve text content
     code = code.trim().replace(/>\s+</g, '><');
     
-    // Split by tags
-    const tags = code.match(/<[^>]+>|[^<]+/g) || [];
+    // Split by tags and content
+    const parts = code.split(/(<[^>]+>)/g).filter(part => part.trim());
     
-    tags.forEach(tag => {
-        if (tag.match(/^<\/\w/)) {
-            // Closing tag
-            indent--;
-            formatted += tab.repeat(Math.max(0, indent)) + tag + '\n';
-        } else if (tag.match(/^<\w[^>]*[^\/]>$/)) {
-            // Opening tag
-            formatted += tab.repeat(indent) + tag + '\n';
+    parts.forEach(part => {
+        if (part.startsWith('</')) {
+            // Closing tag - decrease indent BEFORE printing
+            indent = Math.max(0, indent - 1);
+            formatted += tab.repeat(indent) + part + '\n';
+        } else if (part.startsWith('<') && !part.endsWith('/>') && !part.startsWith('<!')) {
+            // Opening tag - print then increase indent
+            formatted += tab.repeat(indent) + part + '\n';
             indent++;
-        } else if (tag.match(/^<\w[^>]*\/>$/)) {
+        } else if (part.startsWith('<') && part.endsWith('/>')) {
             // Self-closing tag
-            formatted += tab.repeat(indent) + tag + '\n';
-        } else if (tag.trim()) {
+            formatted += tab.repeat(indent) + part + '\n';
+        } else if (part.trim() && !part.startsWith('<')) {
             // Text content
-            formatted += tab.repeat(indent) + tag.trim() + '\n';
+            formatted += tab.repeat(indent) + part.trim() + '\n';
         }
     });
     
@@ -166,7 +166,7 @@ function beautifyCode() {
     const code = codeInput.value.trim();
     
     if (!code) {
-        codeOutput.value = 'Please enter some code first!';
+        codeOutput.value = 'Please enter some code first';
         return;
     }
     
@@ -189,7 +189,7 @@ function beautifyCode() {
         
         codeOutput.value = beautified;
     } catch (error) {
-        codeOutput.value = 'Error formatting code. Please check your syntax.';
+        codeOutput.value = 'Error formatting code. Please verify your syntax.';
         console.error('Beautify error:', error);
     }
 }
@@ -209,12 +209,18 @@ function copyOutput() {
     }
     
     navigator.clipboard.writeText(output).then(function() {
-        const originalText = copyOutputBtn.textContent;
-        copyOutputBtn.textContent = '✓ Copied!';
+        const originalHTML = copyOutputBtn.innerHTML;
         copyOutputBtn.classList.add('copied');
         
+        copyOutputBtn.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copied!
+        `;
+        
         setTimeout(function() {
-            copyOutputBtn.textContent = originalText;
+            copyOutputBtn.innerHTML = originalHTML;
             copyOutputBtn.classList.remove('copied');
         }, 2000);
     }).catch(function(err) {

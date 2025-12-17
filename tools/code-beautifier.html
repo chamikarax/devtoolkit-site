@@ -35,8 +35,15 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1><a href="../index.html" style="text-decoration: none; color: #667eea;">🛠️ DevToolkit</a></h1>
-            <p class="tagline">Code Beautifier</p>
+            <a href="../index.html" class="logo">DevToolkit</a>
+            <nav class="tool-nav">
+                <a href="../index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 13L5 8L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Back to Tools
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -47,8 +54,8 @@
                 
                 <!-- Tool Header -->
                 <div class="tool-header">
-                    <h2>✨ Code Beautifier</h2>
-                    <p>Format and beautify your HTML, CSS, and JavaScript code</p>
+                    <h1>Code Beautifier</h1>
+                    <p>Format and beautify HTML, CSS, and JavaScript with intelligent indentation and proper structure</p>
                 </div>
 
                 <!-- Language Tabs -->
@@ -61,7 +68,7 @@
                 <!-- Code Input Section -->
                 <div class="code-section">
                     <div class="section-header">
-                        <h3>📝 Your Code (Paste Here)</h3>
+                        <h3>Input Code</h3>
                     </div>
                     <textarea 
                         id="codeInput" 
@@ -82,19 +89,23 @@ function hello(){console.log('Hi');}"
                 <!-- Action Buttons -->
                 <div class="action-buttons">
                     <button class="beautify-btn" id="beautifyBtn">
-                        ✨ Beautify Code
+                        Beautify Code
                     </button>
                     <button class="clear-btn" id="clearBtn">
-                        🗑️ Clear All
+                        Clear All
                     </button>
                 </div>
 
                 <!-- Code Output Section -->
                 <div class="code-section">
                     <div class="section-header">
-                        <h3>✅ Beautified Code</h3>
+                        <h3>Formatted Output</h3>
                         <button class="copy-output-btn" id="copyOutputBtn">
-                            📋 Copy
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Copy
                         </button>
                     </div>
                     <textarea 
@@ -107,20 +118,16 @@ function hello(){console.log('Hi');}"
 
                 <!-- Info Section -->
                 <div class="info-section">
-                    <h3>ℹ️ How to Use:</h3>
+                    <h3>Usage Guide</h3>
                     <ol>
-                        <li>Select your code language (HTML, CSS, or JavaScript)</li>
-                        <li>Paste your messy code in the input box</li>
-                        <li>Click "Beautify Code" button</li>
-                        <li>Copy the formatted code from the output box</li>
+                        <li>Select your code language using the tabs above (HTML, CSS, or JavaScript)</li>
+                        <li>Paste your unformatted code into the input area</li>
+                        <li>Click "Beautify Code" to format with proper indentation</li>
+                        <li>Copy the formatted code from the output area</li>
+                        <li>Use Ctrl+Enter as a keyboard shortcut to beautify</li>
                     </ol>
                 </div>
 
-            </div>
-
-            <!-- Back to Home -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="../index.html" class="back-link">← Back to All Tools</a>
             </div>
         </div>
     </main>
@@ -129,6 +136,7 @@ function hello(){console.log('Hi');}"
     <footer>
         <div class="container">
             <p>&copy; 2025 DevToolkit. All tools are free to use.</p>
+            <p class="footer-tagline">Built with care for the developer community</p>
         </div>
     </footer>
 

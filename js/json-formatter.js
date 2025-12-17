@@ -7,6 +7,22 @@ const clearBtn = document.getElementById('clearBtn');
 const copyOutputBtn = document.getElementById('copyOutputBtn');
 const validationStatus = document.getElementById('validationStatus');
 
+// SVG Icons
+const icons = {
+    info: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>`,
+    valid: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+             <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+             <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+           </svg>`,
+    invalid: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+               <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+             </svg>`
+};
+
 // Validation Status Helper Functions
 function showValidationStatus(isValid, message) {
     const statusIcon = validationStatus.querySelector('.status-icon');
@@ -17,17 +33,17 @@ function showValidationStatus(isValid, message) {
     
     if (isValid === null) {
         // Neutral state
-        statusIcon.textContent = 'ℹ️';
+        statusIcon.innerHTML = icons.info;
         statusText.textContent = message;
     } else if (isValid) {
         // Valid JSON
         validationStatus.classList.add('valid');
-        statusIcon.textContent = '✅';
+        statusIcon.innerHTML = icons.valid;
         statusText.textContent = message;
     } else {
         // Invalid JSON
         validationStatus.classList.add('invalid');
-        statusIcon.textContent = '❌';
+        statusIcon.innerHTML = icons.invalid;
         statusText.textContent = message;
     }
 }
@@ -37,7 +53,7 @@ function formatJSON() {
     const input = jsonInput.value.trim();
     
     if (!input) {
-        showValidationStatus(null, 'Please paste some JSON first!');
+        showValidationStatus(null, 'Please paste some JSON first');
         jsonOutput.value = '';
         return;
     }
@@ -53,7 +69,7 @@ function formatJSON() {
         jsonOutput.value = formatted;
         
         // Show success message
-        showValidationStatus(true, 'Valid JSON! Formatted successfully ✨');
+        showValidationStatus(true, 'Valid JSON - Formatted successfully');
         
     } catch (error) {
         // JSON is invalid
@@ -66,7 +82,7 @@ function formatJSON() {
         if (errorMessage.includes('position')) {
             const position = errorMessage.match(/position (\d+)/);
             if (position) {
-                errorMessage = `Syntax error at position ${position[1]}. Check for missing quotes, commas, or brackets.`;
+                errorMessage = `Syntax error at position ${position[1]}. Check for missing quotes, commas, or brackets`;
             }
         }
         
@@ -79,7 +95,7 @@ function minifyJSON() {
     const input = jsonInput.value.trim();
     
     if (!input) {
-        showValidationStatus(null, 'Please paste some JSON first!');
+        showValidationStatus(null, 'Please paste some JSON first');
         jsonOutput.value = '';
         return;
     }
@@ -95,7 +111,7 @@ function minifyJSON() {
         jsonOutput.value = minified;
         
         // Show success message
-        showValidationStatus(true, 'Valid JSON! Minified successfully 🗜️');
+        showValidationStatus(true, 'Valid JSON - Minified successfully');
         
     } catch (error) {
         // JSON is invalid
@@ -108,7 +124,7 @@ function minifyJSON() {
         if (errorMessage.includes('position')) {
             const position = errorMessage.match(/position (\d+)/);
             if (position) {
-                errorMessage = `Syntax error at position ${position[1]}. Check for missing quotes, commas, or brackets.`;
+                errorMessage = `Syntax error at position ${position[1]}. Check for missing quotes, commas, or brackets`;
             }
         }
         
@@ -132,12 +148,18 @@ function copyOutput() {
     }
     
     navigator.clipboard.writeText(output).then(function() {
-        const originalText = copyOutputBtn.textContent;
-        copyOutputBtn.textContent = '✓ Copied!';
+        const originalHTML = copyOutputBtn.innerHTML;
         copyOutputBtn.classList.add('copied');
         
+        copyOutputBtn.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copied!
+        `;
+        
         setTimeout(function() {
-            copyOutputBtn.textContent = originalText;
+            copyOutputBtn.innerHTML = originalHTML;
             copyOutputBtn.classList.remove('copied');
         }, 2000);
     }).catch(function(err) {
@@ -162,7 +184,7 @@ jsonInput.addEventListener('input', function() {
     typingTimer = setTimeout(function() {
         try {
             JSON.parse(input);
-            showValidationStatus(true, 'Valid JSON! Click Format or Minify.');
+            showValidationStatus(true, 'Valid JSON - Click Format or Minify');
         } catch (error) {
             let errorMessage = error.message;
             if (errorMessage.includes('position')) {

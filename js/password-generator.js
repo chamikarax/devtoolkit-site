@@ -36,8 +36,11 @@ function generatePassword() {
     
     // If no options selected, show error
     if (charset === '') {
-        passwordDisplay.textContent = 'Please select at least one option!';
+        passwordDisplay.textContent = 'Please select at least one character type';
         passwordDisplay.classList.remove('generated');
+        strengthText.textContent = '-';
+        strengthText.style.color = '#9CA3AF';
+        strengthFill.classList.remove('weak', 'medium', 'strong');
         return;
     }
     
@@ -60,7 +63,8 @@ function calculateStrength(password) {
     let strength = 0;
     
     // Check length
-    if (password.length >= 12) strength += 2;
+    if (password.length >= 16) strength += 3;
+    else if (password.length >= 12) strength += 2;
     else if (password.length >= 8) strength += 1;
     
     // Check for different character types
@@ -74,15 +78,15 @@ function calculateStrength(password) {
     
     if (strength <= 3) {
         strengthText.textContent = 'Weak';
-        strengthText.style.color = '#f44336';
+        strengthText.style.color = '#EF4444';
         strengthFill.classList.add('weak');
     } else if (strength <= 5) {
         strengthText.textContent = 'Medium';
-        strengthText.style.color = '#ff9800';
+        strengthText.style.color = '#F59E0B';
         strengthFill.classList.add('medium');
     } else {
         strengthText.textContent = 'Strong';
-        strengthText.style.color = '#4caf50';
+        strengthText.style.color = '#10B981';
         strengthFill.classList.add('strong');
     }
 }
@@ -92,20 +96,28 @@ function copyToClipboard() {
     const password = passwordDisplay.textContent;
     
     // Don't copy if no password generated
-    if (password === 'Click Generate to create a password' || password === 'Please select at least one option!') {
+    if (password === 'Click Generate to create a password' || 
+        password === 'Please select at least one character type') {
         return;
     }
     
     // Copy to clipboard
     navigator.clipboard.writeText(password).then(function() {
-        // Change button text temporarily
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✓ Copied!';
+        // Change button appearance temporarily
         copyBtn.classList.add('copied');
+        const copyIcon = copyBtn.querySelector('svg');
+        const originalHTML = copyBtn.innerHTML;
+        
+        copyBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copied!
+        `;
         
         // Reset after 2 seconds
         setTimeout(function() {
-            copyBtn.textContent = originalText;
+            copyBtn.innerHTML = originalHTML;
             copyBtn.classList.remove('copied');
         }, 2000);
     }).catch(function(err) {

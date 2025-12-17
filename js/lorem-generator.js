@@ -123,7 +123,12 @@ function generateText() {
         output = `<p>${sentences.join(' ')}</p>`;
         
     } else if (currentType === 'words') {
-        if (useClassicStart) {
+        if (useClassicStart && amount > 1) {
+            // Start with classic, then add remaining words
+            const remainingWords = amount - 1;
+            const additionalWords = remainingWords > 0 ? ' ' + generateWords(remainingWords).replace(/\.$/, '') : '';
+            output = `<p>${classicStart}${additionalWords}.</p>`;
+        } else if (useClassicStart) {
             output = `<p>${classicStart}</p>`;
         } else {
             output = `<p>${generateWords(amount)}</p>`;
@@ -142,12 +147,18 @@ function copyText() {
     }
     
     navigator.clipboard.writeText(text).then(function() {
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✓ Copied!';
+        const originalHTML = copyBtn.innerHTML;
         copyBtn.classList.add('copied');
         
+        copyBtn.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Copied!
+        `;
+        
         setTimeout(function() {
-            copyBtn.textContent = originalText;
+            copyBtn.innerHTML = originalHTML;
             copyBtn.classList.remove('copied');
         }, 2000);
     }).catch(function(err) {

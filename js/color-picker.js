@@ -195,12 +195,17 @@ copyValueBtns.forEach(btn => {
         copyToClipboard(textToCopy);
         
         // Visual feedback
-        const originalText = this.textContent;
-        this.textContent = '✓';
+        const originalHTML = this.innerHTML;
         this.classList.add('copied');
         
+        this.innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        `;
+        
         setTimeout(() => {
-            this.textContent = originalText;
+            this.innerHTML = originalHTML;
             this.classList.remove('copied');
         }, 2000);
     });

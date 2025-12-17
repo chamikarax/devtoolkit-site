@@ -35,8 +35,15 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <h1><a href="../index.html" style="text-decoration: none; color: #667eea;">🛠️ DevToolkit</a></h1>
-            <p class="tagline">Lorem Ipsum Generator</p>
+            <a href="../index.html" class="logo">DevToolkit</a>
+            <nav class="tool-nav">
+                <a href="../index.html" class="back-link">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 13L5 8L10 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Back to Tools
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -47,36 +54,36 @@
                 
                 <!-- Tool Header -->
                 <div class="tool-header">
-                    <h2>📝 Lorem Ipsum Generator</h2>
-                    <p>Generate placeholder text for your designs and mockups</p>
+                    <h1>Lorem Ipsum Generator</h1>
+                    <p>Generate professional placeholder text for mockups, designs, and content prototypes</p>
                 </div>
 
                 <!-- Options Section -->
                 <div class="options-section">
-                    <h3>Generation Options</h3>
+                    <h3>Configuration Options</h3>
                     
                     <!-- Type Selection -->
                     <div class="option-group">
-                        <label>Generate:</label>
+                        <label class="option-label">Output Type:</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="type" value="paragraphs" checked>
-                                Paragraphs
+                                <span>Paragraphs</span>
                             </label>
                             <label class="radio-label">
                                 <input type="radio" name="type" value="sentences">
-                                Sentences
+                                <span>Sentences</span>
                             </label>
                             <label class="radio-label">
                                 <input type="radio" name="type" value="words">
-                                Words
+                                <span>Words</span>
                             </label>
                         </div>
                     </div>
                     
                     <!-- Amount Selection -->
                     <div class="option-group">
-                        <label for="amountSlider">
+                        <label for="amountSlider" class="option-label">
                             Amount: <span id="amountValue">3</span> <span id="amountUnit">paragraphs</span>
                         </label>
                         <input type="range" id="amountSlider" min="1" max="10" value="3">
@@ -86,14 +93,14 @@
                     <div class="option-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="startWithLorem" checked>
-                            Start with "Lorem ipsum dolor sit amet..."
+                            <span>Begin with classic "Lorem ipsum dolor sit amet..."</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Generate Button -->
                 <button class="generate-btn" id="generateBtn">
-                    ✨ Generate Text
+                    Generate Text
                 </button>
 
                 <!-- Output Section -->
@@ -101,7 +108,11 @@
                     <div class="section-header">
                         <h3>Generated Text</h3>
                         <button class="copy-output-btn" id="copyBtn">
-                            📋 Copy All
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                                <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Copy All
                         </button>
                     </div>
                     <div class="text-output" id="textOutput">
@@ -111,24 +122,19 @@
 
                 <!-- Info Section -->
                 <div class="info-section">
-                    <h3>ℹ️ How to Use:</h3>
-                    <ol>
-                        <li>Choose what to generate (Paragraphs, Sentences, or Words)</li>
-                        <li>Select the amount using the slider</li>
-                        <li>Optionally start with classic "Lorem ipsum..." text</li>
-                        <li>Click "Generate Text"</li>
-                        <li>Copy the generated text to use in your project</li>
-                    </ol>
+                    <h3>About Lorem Ipsum</h3>
+                    <p>Lorem Ipsum is the industry-standard placeholder text used in design and publishing since the 1500s. It allows designers to focus on visual elements and layout without the distraction of meaningful content, making it ideal for mockups, wireframes, and prototypes.</p>
                     
-                    <h3 style="margin-top: 1.5rem;">💡 What is Lorem Ipsum?</h3>
-                    <p>Lorem Ipsum is placeholder text commonly used in design and publishing. It has been the industry standard since the 1500s, allowing designers to focus on visual elements without being distracted by meaningful content.</p>
+                    <h3 class="usage-title">Usage Guide</h3>
+                    <ol>
+                        <li>Select your preferred output type (paragraphs, sentences, or words)</li>
+                        <li>Adjust the amount using the slider control</li>
+                        <li>Toggle the classic Lorem Ipsum opening if desired</li>
+                        <li>Click "Generate Text" to create placeholder content</li>
+                        <li>Copy the generated text for use in your projects</li>
+                    </ol>
                 </div>
 
-            </div>
-
-            <!-- Back to Home -->
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="../index.html" class="back-link">← Back to All Tools</a>
             </div>
         </div>
     </main>
@@ -137,6 +143,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 DevToolkit. All tools are free to use.</p>
+            <p class="footer-tagline">Built with care for the developer community</p>
         </div>
     </footer>
 
